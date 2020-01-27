@@ -17,6 +17,7 @@
   <script nomodule src="/build/stencil-web-components.js"></script>
 </head>
 <body>
+  <button id="side-drawer-button">Open SD</button>
   <my-side-drawer title="MENU">
     <navbar class="side-drawer-nav">
       <ul>
@@ -26,13 +27,21 @@
       </ul>
     </navbar>
   </my-side-drawer>
-
   <script>
     const sideDrawer = document.querySelector("my-side-drawer");
-    setTimeout(() => {
-      // sideDrawer.title = "changed from el title reflected";
-      // sideDrawer.setAttribute("title", "changed from setAttribute");
-    }, 1000);
+    const sideDrawerButton = document.querySelector("#side-drawer-button");
+    sideDrawerButton.addEventListener("click", () => {
+      if (!sideDrawer.open) {
+        console.log("opening....");
+        sideDrawer.setAttribute("open", "");
+      }
+    })
+
+    // timer to change title with 2 methods: changing attribute value and setting attribute
+    // setTimeout(() => {
+    //   sideDrawer.title = "changed from el title reflected";
+    //   sideDrawer.setAttribute("title", "changed from setAttribute");
+    // }, 1000);
   </script>
 </body>
 </html>

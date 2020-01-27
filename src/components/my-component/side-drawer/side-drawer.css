@@ -1,15 +1,22 @@
-h1 {
-    margin: 0;
-}
 div {
     font-family: sans-serif;
-    background-color: lightgrey;
-    padding: 16px;
+    background-color: beige;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
     width: 30rem; 
     max-width: 80vw;
-
+}
+h1 {
+    margin: 0;
+}
+header { 
+    width: 100%;
+    background-color: black;
+}
+header h1 {
+    padding: 8px 16px;
+    font-size: 2.5rem;
+    color: beige;
 }

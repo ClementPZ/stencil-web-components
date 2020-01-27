@@ -4,12 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
-
+  <style>
+    .side-drawer-nav ul li {
+      list-style: none;
+    }
+    .side-drawer-nav ul li a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
   <script type="module" src="/build/stencil-web-components.esm.js"></script>
   <script nomodule src="/build/stencil-web-components.js"></script>
-
 </head>
 <body>
-  <my-side-drawer></my-side-drawer>
+  <my-side-drawer title="MENU">
+    <navbar class="side-drawer-nav">
+      <ul>
+        <li><a href="#">A link</a></li>
+        <li><a href="#">Another link</a></li>
+        <li><a href="#">A third link</a></li>
+      </ul>
+    </navbar>
+  </my-side-drawer>
+
+  <script>
+    const sideDrawer = document.querySelector("my-side-drawer");
+    setTimeout(() => {
+      // sideDrawer.title = "changed from el title reflected";
+      // sideDrawer.setAttribute("title", "changed from setAttribute");
+    }, 1000);
+  </script>
 </body>
 </html>

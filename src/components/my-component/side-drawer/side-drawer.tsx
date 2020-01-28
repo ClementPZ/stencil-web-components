@@ -19,30 +19,25 @@ export class SideDrawer {
     }
 
     render() {
-        // let content = null;
-        // if (this.open) {
-        //     content = (
-        //         <div>
-        //         <header>
-        //             <h1>{this.title}</h1>
-        //         </header>
-        //         <main>
-        //             <slot />
-        //         </main>
-        //     </div>
-        //     )
-        // }
         let mainContent = <slot />;
+        mainContent = (
+            <div>
+                <h2>Our contacts</h2>
+                <ul>
+                    <li>our phone  5538292828</li>
+                    <li>our email: <a href="mailto:cleent@gen.com">mailto:cleent@gen.com</a></li>
+                </ul>
+            </div>
+        )
         return (                
         <div>
             <header>
                 <h1>{this.title}</h1>
                 <button onClick={this.closeDrawer.bind(this)}>X</button>
             </header>
-
             <section id="tabs">
-                <button class="active">navigation</button>
-                <button>contact</button>
+                <button class="active" onClick={this.changeTab.bind(this, "nav")}>navigation</button>
+                <button onClick={this.changeTab.bind(this, "contacts")}>contact</button>
             </section>
             <main>
                 {mainContent}

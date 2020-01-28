@@ -1,4 +1,4 @@
-div {
+aside {
     font-family: sans-serif;
     background-color: beige;
     position: fixed;
@@ -13,6 +13,7 @@ h1 {
     margin: 0;
 }
 header { 
+    /* commented flex replaced by position absolut / relative for the closing cross.
     /* display: flex;
     align-items: center;
     justify-content: space-between; */
@@ -27,7 +28,7 @@ header h1 {
 }
 
 
-:host([open]) div {
+:host([open]) aside {
     left: 0;  
 }
 
@@ -66,4 +67,7 @@ header button:focus {
 }
 #tabs button:focus {
     outline: none;
+}
+#contact-informations {
+    padding: 16px;
 }

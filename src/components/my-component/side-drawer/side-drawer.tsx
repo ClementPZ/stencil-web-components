@@ -8,10 +8,14 @@ import { Component, h, Prop } from '@stencil/core';
 
 export class SideDrawer {
     @Prop({ reflect: true }) title: string;
-    @Prop({ reflect: true }) open: boolean = false;
+    @Prop({ reflect: true, mutable: true }) open: boolean = false;
 
     closeDrawer() {
         this.open = false;
+    }
+
+    changeTab(content) {
+        console.log(content);
     }
 
     render() {
@@ -28,14 +32,20 @@ export class SideDrawer {
         //     </div>
         //     )
         // }
+        let mainContent = <slot />;
         return (                
         <div>
             <header>
                 <h1>{this.title}</h1>
                 <button onClick={this.closeDrawer.bind(this)}>X</button>
             </header>
+
+            <section id="tabs">
+                <button class="active">navigation</button>
+                <button>contact</button>
+            </section>
             <main>
-                <slot />
+                {mainContent}
             </main>
         </div>
         );

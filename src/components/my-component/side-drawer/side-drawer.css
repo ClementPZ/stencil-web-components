@@ -13,11 +13,12 @@ h1 {
     margin: 0;
 }
 header { 
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     width: 100%;
     background-color: black;
+    position: relative;
 }
 header h1 {
     padding: 8px 16px;
@@ -31,9 +32,38 @@ header h1 {
 }
 
 header button {
+    position: absolute;
+    right: 0;
+    top: 0;
     color: white;
     background: transparent;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: none;
-    margin-right: 16px;
+    padding: 1rem;
+}
+header button:focus {
+    outline: none;
+}
+
+#tabs {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#tabs button {
+    margin-top: 8px;
+    width: 40%;
+    padding: 0.15rem;
+    border: none;
+    outline: none;
+}
+#tabs button.active,
+#tabs button:hover,
+#tabs button:active {
+    background-color: black;
+    color: beige;
+}
+#tabs button:focus {
+    outline: none;
 }

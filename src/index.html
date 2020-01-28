@@ -32,10 +32,16 @@
     const sideDrawerButton = document.querySelector("#side-drawer-button");
     sideDrawerButton.addEventListener("click", () => {
       if (!sideDrawer.open) {
+        sideDrawer.open = true;
+        // sideDrawer.setAttribute("open", "");
         console.log("opening....");
-        sideDrawer.setAttribute("open", "");
       }
-    })
+      // } else {
+      //     console.log("closing....");
+      //     sideDrawer.open = false;
+      //     // sideDrawer.removeAttribute("open");
+    });
+
 
     // timer to change title with 2 methods: changing attribute value and setting attribute
     // setTimeout(() => {

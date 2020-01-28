@@ -7,11 +7,15 @@ div {
     height: 100vh;
     width: 30rem; 
     max-width: 80vw;
+    transition: 0.3s ease-out;
 }
 h1 {
     margin: 0;
 }
 header { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: black;
 }
@@ -20,7 +24,16 @@ header h1 {
     font-size: 2.5rem;
     color: beige;
 }
+
+
 :host([open]) div {
-    transition: 0.3s ease-out;
     left: 0;  
+}
+
+header button {
+    color: white;
+    background: transparent;
+    font-size: 1.5rem;
+    border: none;
+    margin-right: 16px;
 }

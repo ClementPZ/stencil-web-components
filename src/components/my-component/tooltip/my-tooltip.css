@@ -3,7 +3,6 @@
     font-family: sans-serif;
     color: var(--my-black);
 }
-
 #tooltip-icon {
     font-size: 24px;
     border: 1px solid var(--my-blacke);
@@ -16,14 +15,30 @@
 #tooltip {
     font-size: 16px;
     color: var(--my-blacke);
+    background-color: white;
     border: 1px solid var(--my-blacke);
     border-radius: 3px;
     padding: 8px;
     position: absolute;
     top: 90px;
+    z-index: 100;
     display: none;
 }
-
-:host([visible]) #tooltip {
+#backdrop {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.10);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    transition: 2s ease-out;
+}
+:host([opened]) #tooltip {
     display: block;
+}
+:host([opened]) #backdrop {
+    display: block;
+    pointer-events: none;
 }

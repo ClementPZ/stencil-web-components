@@ -6,17 +6,18 @@ import { Component, h, Prop, State } from "@stencil/core";
     shadow: true
 })
 export class MyToolip {
-    @Prop() tooltiptext: string ;
-    // @Prop( { reflect: true } ) visible = false;
-    @Prop( { reflect: true }) visible = false;
-    
+    @Prop({ reflect: true }) opened = false;
     toggleTooltip() {
-        this.visible = !this.visible;
+        console.log("toggling tooltip...");
+        console.log(this.opened);
+        this.opened = !this.opened;
+        console.log(this.opened);
     }
     render() {
         return [
             <div id="tooltip-icon" onClick={this.toggleTooltip.bind(this)}>?</div>,
-            <div id="tooltip"><slot /></div>
+            <div id="tooltip"><slot /></div>,
+            <div id="backdrop"></div>
         ]
     }
 }

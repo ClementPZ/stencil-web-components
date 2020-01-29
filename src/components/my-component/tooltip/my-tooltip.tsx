@@ -11,10 +11,10 @@ export class MyToolip {
     @Prop( { reflect: true } ) open = false;
     toggleTooltip() {
         if (!this.open) {
-            console.log("opening...");
+            console.log("opening tooltip...");
             this.open = true;
         } else {
-            console.log("closing...");
+            console.log("closing tooltip...");
             this.open = false;
         }
     }
@@ -23,11 +23,13 @@ export class MyToolip {
         <div id="container">
             <main>
                 <slot name="main-text" />
-                <span id="tooltip-icon" onClick={this.toggleTooltip.bind(this)}>?</span>
+                <div id="tooltip-icon" onClick={this.toggleTooltip.bind(this)}>
+                    <div id="tooltip">
+                        {this.tooltiptext}
+                    </div>
+                    ?
+                </div>
             </main>
-            <div id="tooltip">
-                {this.tooltiptext}
-            </div>
         </div> 
         )
     }

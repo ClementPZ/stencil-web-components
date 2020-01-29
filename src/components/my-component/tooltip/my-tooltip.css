@@ -1,7 +1,6 @@
 #container {
     width: 70vw;
     padding: 1rem;
-    position: relative;
 }
 main {
     display: flex;
@@ -14,14 +13,16 @@ main {
     margin-left: 8px;
     padding: 8px;
     border-radius: 50%; 
+    position: relative;
 }
 #tooltip {
     background-color: black;
     color: white;
+    width: 300%;
     padding: 8px;
     position: absolute;
-    top: 58px;
-    right: 16px;
+    top: 48px;
+    right: -8px;
     display: none;
 }
 :host([open]) #tooltip {

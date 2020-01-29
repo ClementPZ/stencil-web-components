@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
   <style>
+    body {
+      font-family: sans-serif;
+    }
+    #container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
     .side-drawer-nav ul li {
       list-style: none;
     }
@@ -19,9 +27,12 @@
 <body>
   
   <button id="side-drawer-button">Open SD</button>
-  <my-tooltip tooltiptext="hello from tooltip text attribute, type your tip in this attribute">
-    <h2 slot="main-text">This is a test to have a tooltip</h2>
-  </my-tooltip>
+
+  <div id="container">
+    <h3>This is a test to have a tooltip</h3>
+    <my-tooltip>This is the text of the tooltip</my-tooltip>
+  </div>
+  
   <my-side-drawer title="MENU">
     <navbar class="side-drawer-nav">
       <ul>

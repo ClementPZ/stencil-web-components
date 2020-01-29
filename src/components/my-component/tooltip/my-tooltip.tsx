@@ -6,7 +6,7 @@ import { Component, h, Prop, State } from "@stencil/core";
     shadow: true
 })
 export class MyToolip {
-    @Prop() tooltiptext = "should add a tooltipText attribute to custom element my-tooltip";
+    @Prop() tooltiptext: string ;
     // @Prop( { reflect: true } ) visible = false;
     @Prop( { reflect: true }) visible = false;
     
@@ -14,19 +14,9 @@ export class MyToolip {
         this.visible = !this.visible;
     }
     render() {
-
-        return (
-        <div id="container">
-            <main> 
-                <slot name="main-text" />
-                <div id="tooltip-icon" onClick={this.toggleTooltip.bind(this)}>
-                    <div id="tooltip">
-                        {this.tooltiptext}
-                    </div>
-                    ?
-                </div>
-            </main>
-        </div> 
-        )
+        return [
+            <div id="tooltip-icon" onClick={this.toggleTooltip.bind(this)}>?</div>,
+            <div id="tooltip"><slot /></div>
+        ]
     }
 }

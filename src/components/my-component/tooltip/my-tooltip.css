@@ -1,20 +1,13 @@
 :host {
-    --my-black: rgba(0,0,0,0.85);
-}
-#container {
-    width: 70vw;
-    padding: 1rem;
-    color: var(--my-black);
+    --my-blacke: rgba(0,0,0,0.90);
     font-family: sans-serif;
+    color: var(--my-black);
 }
-main {
-    display: flex;
-    align-items: center;
-}
+
 #tooltip-icon {
     font-size: 24px;
-    border: 1px solid var(--my-black);
-    color: var(--my-black);
+    border: 1px solid var(--my-blacke);
+    color: var(--my-blacke);
     margin-left: 16px;
     padding: 8px 16px;
     border-radius: 50%; 
@@ -22,16 +15,15 @@ main {
 }
 #tooltip {
     font-size: 16px;
-    color: var(--my-black);
-    border: 1px solid var(--my-black);
-    border-radius: 10px;
-    width: 300%;
+    color: var(--my-blacke);
+    border: 1px solid var(--my-blacke);
+    border-radius: 3px;
     padding: 8px;
     position: absolute;
-    top: 60px;
-    right: -16px;
+    top: 90px;
     display: none;
 }
+
 :host([visible]) #tooltip {
     display: block;
 }

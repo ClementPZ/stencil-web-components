@@ -1,7 +1,6 @@
 :host {
-    --my-black: rgba(0,0,0,0.85);
+    --my-black: rgba(0,0,0,0.90);
 }
-
 aside {
     color: var(--my-black);
     background-color: white;
@@ -14,6 +13,7 @@ aside {
     max-width: 80vw;
     transition: 0.3s ease-out;
     z-index: 100;
+    border: 1px solid var(--my-black);
 }
 #backdrop {
     background-color: rgba (0,0,0,0.5);
@@ -72,10 +72,10 @@ header button:focus {
 }
 
 #tabs button {
+    border: 1px solid var(--my-black);
     margin-top: 8px;
     width: 40%;
     padding: 0.15rem;
-    border: none;
     outline: none;
 }
 #tabs button.active,

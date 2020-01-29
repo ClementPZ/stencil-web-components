@@ -29,8 +29,8 @@ export namespace Components {
     'title': string;
   }
   interface MyTooltip {
-    'open': boolean;
     'tooltiptext': string;
+    'visible': boolean;
   }
 }
 
@@ -81,8 +81,8 @@ declare namespace LocalJSX {
     'title'?: string;
   }
   interface MyTooltip {
-    'open'?: boolean;
     'tooltiptext'?: string;
+    'visible'?: boolean;
   }
 
   interface IntrinsicElements {

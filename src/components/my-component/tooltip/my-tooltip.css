@@ -1,30 +1,37 @@
+:host {
+    --my-black: rgba(0,0,0,0.85);
+}
 #container {
     width: 70vw;
     padding: 1rem;
+    color: var(--my-black);
+    font-family: sans-serif;
 }
 main {
     display: flex;
     align-items: center;
 }
 #tooltip-icon {
-    font-size: 16px;
-    background-color: black;
-    color: white;
-    margin-left: 8px;
-    padding: 8px;
+    font-size: 24px;
+    border: 1px solid var(--my-black);
+    color: var(--my-black);
+    margin-left: 16px;
+    padding: 8px 16px;
     border-radius: 50%; 
     position: relative;
 }
 #tooltip {
-    background-color: black;
-    color: white;
+    font-size: 16px;
+    color: var(--my-black);
+    border: 1px solid var(--my-black);
+    border-radius: 10px;
     width: 300%;
     padding: 8px;
     position: absolute;
-    top: 48px;
-    right: -8px;
+    top: 60px;
+    right: -16px;
     display: none;
 }
-:host([open]) #tooltip {
+:host([visible]) #tooltip {
     display: block;
 }

@@ -1,27 +1,23 @@
-import { Component, h, Prop } from "@stencil/core";
+import { Component, h, Prop, State } from "@stencil/core";
 
 @Component({
     tag: "my-tooltip",
     styleUrl: "./my-tooltip.css",
     shadow: true
 })
-
 export class MyToolip {
-    @Prop( { reflect: true } ) tooltiptext: string = "should add a tooltipText attribute to custom element my-tooltip";
-    @Prop( { reflect: true } ) open = false;
+    @Prop() tooltiptext = "should add a tooltipText attribute to custom element my-tooltip";
+    // @Prop( { reflect: true } ) visible = false;
+    @Prop( { reflect: true }) visible = false;
+    
     toggleTooltip() {
-        if (!this.open) {
-            console.log("opening tooltip...");
-            this.open = true;
-        } else {
-            console.log("closing tooltip...");
-            this.open = false;
-        }
+        this.visible = !this.visible;
     }
     render() {
+
         return (
         <div id="container">
-            <main>
+            <main> 
                 <slot name="main-text" />
                 <div id="tooltip-icon" onClick={this.toggleTooltip.bind(this)}>
                     <div id="tooltip">

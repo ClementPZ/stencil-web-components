@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop, State } from '@stencil/core';
 
 @Component({
     tag: "my-side-drawer",
@@ -7,41 +7,45 @@ import { Component, h, Prop } from '@stencil/core';
 })
 
 export class SideDrawer {
+    @State() showContactInfo: boolean = false;
     @Prop({ reflect: true }) title: string;
     @Prop({ reflect: true, mutable: true }) open: boolean = false;
-
     closeDrawer() {
         this.open = false;
     }
-    changeTab(content) {
-        console.log(content);
+    changeTab(content: string) {
+        this.showContactInfo = (content === "contact");
     }
     render() {
         let mainContent = <slot />;
-        mainContent = (
-            <div id="contact-informations">
-                <h2>Our contacts</h2>
-                <h3>You can reach us here:</h3>
-                <ul>
-                    <li>our phone  5538292828</li>
-                    <li>our email: <a href="mailto:cleent@gen.com">mailto:cleent@gen.com</a></li>
-                </ul>
-            </div>
-        );
-        return (                
-        <aside>
-            <header>
-                <h1>{this.title}</h1>
-                <button onClick={this.closeDrawer.bind(this)}>X</button>
-            </header>
-            <section id="tabs">
-                <button class="active" onClick={this.changeTab.bind(this, "nav")}>navigation</button>
-                <button onClick={this.changeTab.bind(this, "contact")}>contact</button>
-            </section>
-            <main>
-                {mainContent}
-            </main>
-        </aside>
-        );
+        if (this.showContactInfo) {
+            mainContent = (
+                <div id="contact-informations">
+                    <h2>Our contacts</h2>
+                    <h3>You can reach us here:</h3>
+                    <ul>
+                        <li>our phone  5538292828</li>
+                        <li>our email: <a href="mailto:cleent@gen.com">mailto:cleent@gen.com</a></li>
+                    </ul>
+                </div>
+            );
+        }
+
+        return [
+            <div id="backdrop" />,               
+            <aside>
+                <header>
+                    <h1>{this.title}</h1>
+                    <button onClick={this.closeDrawer.bind(this)}>X</button>
+                </header>
+                <section id="tabs">
+                    <button class={!this.showContactInfo ? "active" : ""} onClick={this.changeTab.bind(this, "nav")}>navigation</button>
+                    <button class={this.showContactInfo ? "active" : ""} onClick={this.changeTab.bind(this, "contact")}>contact</button>
+                </section>
+                <main>
+                    {mainContent}
+                </main>
+            </aside>
+        ];
     }
 }

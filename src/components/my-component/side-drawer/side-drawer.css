@@ -8,6 +8,26 @@ aside {
     width: 30rem; 
     max-width: 80vw;
     transition: 0.3s ease-out;
+    z-index: 100;
+}
+#backdrop {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: beige;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
+}
+:host([open]) aside {
+    left: 0;  
+}
+:host([open]) #backdrop {
+    opacity: 0.5;
+    pointer-events: all;
 }
 h1 {
     margin: 0;
@@ -26,12 +46,6 @@ header h1 {
     font-size: 2.5rem;
     color: beige;
 }
-
-
-:host([open]) aside {
-    left: 0;  
-}
-
 header button {
     position: absolute;
     right: 0;
